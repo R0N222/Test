@@ -11,12 +11,12 @@ public class ShotgunWeapon : Weapon
 	[SerializeField] private float shootStrength;
 	[SerializeField] private int bulletAmount;
 	[SerializeField] private float bloom;
-	public override void Act(Player p, Vector2 dir)
+	protected override void Act(Player p, Vector2 dir)
 	{
 
 	}
 
-	public override void ActEnter(Player p, Vector2 dir) // einzel schuss
+	protected override void ActEnter(Player p, Vector2 dir) // einzel schuss
 	{
 		for(int i = 0; i < bulletAmount; i++)
 		{
