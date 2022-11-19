@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 	[SerializeField] private float raySize = 0.2f;
 
 
-	[SerializeField] private Weapon weapon;
+	[SerializeField] private WeaponManager weapon;
 
 	[SerializeField] private Transform weaponHolder;
 
@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
 	[SerializeField] private SpriteRenderer skinnedMeshRenderer;
 
 	[SerializeField] private List<ActivePower> powers = new List<ActivePower>();
+	[SerializeField] private float health = 100;
+	bool fireEnter = false;
 	public void Start()
 	{
 		GameManager.instance.OnPlayerConnect(this);
@@ -71,7 +73,6 @@ public class Player : MonoBehaviour
 	}
 
 
-	bool fireEnter = false;
 	public void Fire(CallbackContext cc)
 	{
 
@@ -87,10 +88,10 @@ public class Player : MonoBehaviour
 		}
 		if (cc.started)
 		{
-			weapon.ActEnter(this, lookDir);
+			weapon.ShootEnter(this, lookDir);
 			fireEnter = true;
 		}
-		weapon.Act(this, lookDir);
+		weapon.Shoot(this, lookDir);
 	}
 	public void Look(CallbackContext cc)
 	{
@@ -146,7 +147,6 @@ public class Player : MonoBehaviour
 	}
 
 
-	[SerializeField] private float health = 100;
 	public void Damage(float damage)
 	{
 
