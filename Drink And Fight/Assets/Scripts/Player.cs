@@ -21,7 +21,8 @@ public class Player : MonoBehaviour
 	[SerializeField] private float raySize = 0.2f;
 
 
-	[SerializeField] private WeaponManager weapon;
+	[SerializeField] private WeaponManager weaponManager;
+	[SerializeField] private Weapon weapon;
 
 	[SerializeField] private Transform weaponHolder;
 
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
 	{
 		GameManager.instance.OnPlayerConnect(this);
 		skinnedMeshRenderer.color = Color.HSVToRGB(Random.Range(0f, 1f), 0.84f, 0.86f);
+		weaponManager.Init(weapon);
 	}
 
 
@@ -88,10 +90,10 @@ public class Player : MonoBehaviour
 		}
 		if (cc.started)
 		{
-			weapon.ShootEnter(this, lookDir);
+			weaponManager.ShootEnter(this, lookDir);
 			fireEnter = true;
 		}
-		weapon.Shoot(this, lookDir);
+		weaponManager.Shoot(this, lookDir);
 	}
 	public void Look(CallbackContext cc)
 	{

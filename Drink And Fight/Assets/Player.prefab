@@ -237,7 +237,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4684490454620896455}
   collider2D: {fileID: 4684490454620896449}
   raySize: 0.05
-  weapon: {fileID: 6850965243807994494}
+  weaponManager: {fileID: 6850965243807994494}
+  weapon: {fileID: 3336858275719815025}
   weaponHolder: {fileID: 7287434004968860995}
   aimPoint: {fileID: 2116448206407352214}
   skinnedMeshRenderer: {fileID: 4684490454620896455}
@@ -440,7 +441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapons:
   - {fileID: 3068155826393459636, guid: 5eb7a86c7bbfaaf439cff5287fe93fcf, type: 3}
-  weapon: {fileID: 9019423505693297509}
+  weapon: {fileID: 0}
   player: {fileID: 4684490454620896453}
   weaponParent: {fileID: 7287434004968860995}
   offset: {x: 0.041, y: 0.13}

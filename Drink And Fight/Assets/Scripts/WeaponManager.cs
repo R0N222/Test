@@ -13,6 +13,11 @@ public class WeaponManager : MonoBehaviour
 	[SerializeField] private Player player;
 	[SerializeField] private Transform weaponParent;
 	[SerializeField] private Vector2 offset;
+
+	public void Init(Weapon wp)
+	{
+		weapon = wp;
+	}
 	public void SpawnWeapon(Weapon pref)
 	{
 		var wp = Instantiate(pref,offset,Quaternion.Euler(0,0,90), weaponParent);
@@ -21,12 +26,15 @@ public class WeaponManager : MonoBehaviour
 	}
 	public void ShootEnter(Player pl, Vector2 dir)
 	{
+		if (!weapon) return;
 		weapon.ShootEnter(player, dir);
 	}
 
 	public void Shoot(Player pl, Vector2 dir)
 	{
-		weapon.Shoot(pl, dir);
+        if (!weapon) return;
+
+        weapon.Shoot(pl, dir);
 	}
 
 
