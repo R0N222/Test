@@ -165,6 +165,7 @@ MonoBehaviour:
   damage: 10
   coolDown: 0.4
   canAct: 1
+  knockBackWumps: 25
   bullet: {fileID: 2647109594349309477, guid: 85606125908474b4989368314c8a485a, type: 3}
   spawnPosition: {fileID: 3111912380627728541}
   shootStrength: 0.1

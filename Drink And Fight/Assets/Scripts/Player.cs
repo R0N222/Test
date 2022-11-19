@@ -80,6 +80,7 @@ public class Player : MonoBehaviour
 
 		AudioManager.Play("Shoot");
 
+		Debug.Log("Hold");
 		if (lookDir == Vector2.zero)
 		{
 			lookDir = movementInput;
@@ -93,6 +94,7 @@ public class Player : MonoBehaviour
 			weaponManager.ShootEnter(this, lookDir);
 			fireEnter = true;
 		}
+
 		weaponManager.Shoot(this, lookDir);
 	}
 	public void Look(CallbackContext cc)

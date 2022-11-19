@@ -163,8 +163,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  coolDown: 0.5
+  coolDown: 1
   canAct: 1
+  knockBackWumps: 200
   bullet: {fileID: 2869386972137070113, guid: 9ac0e653215bd894eaba1fa69d2737d7, type: 3}
   spawnPosition: {fileID: 9209852781536314648}
   shootStrength: 0.4

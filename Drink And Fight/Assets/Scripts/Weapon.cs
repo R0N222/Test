@@ -14,17 +14,27 @@ public abstract class Weapon : MonoBehaviour
 
     private float lastTimeShot = 0;
     private float lastTimeShotEnter = 0;
+    [SerializeField] private int knockBackWumps;
 
 
     public void ShootEnter(Player p, Vector2 dir)
 	{
         CheckCooldown(p, dir, false,(p, dir) => {
+            KnockBack(p, dir);
             ActEnter(p, dir);
             });
 	}
     public void Shoot(Player p, Vector2 dir)
     {
-		CheckCooldown(p, dir, true, (p,dir) => Act(p, dir));
+		CheckCooldown(p, dir, true, (p,dir) => { 
+            KnockBack(p, dir);
+            Act(p, dir);
+        });
+    }
+
+    private void KnockBack(Player p, Vector2 dir)
+    {
+        p.rigid.AddForce(-dir.normalized * knockBackWumps);
     }
 
     public void CheckCooldown(Player p, Vector2 dir, bool lts, Action<Player,Vector2> act)
