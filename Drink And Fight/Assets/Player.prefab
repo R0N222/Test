@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 4684490454620896453}
   - component: {fileID: 4684490454620896448}
   - component: {fileID: 3230389140789953113}
+  - component: {fileID: 6850965243807994494}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -236,7 +237,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4684490454620896455}
   collider2D: {fileID: 4684490454620896449}
   raySize: 0.05
-  weapon: {fileID: 3336858275719815025}
+  weapon: {fileID: 6850965243807994494}
   weaponHolder: {fileID: 7287434004968860995}
   aimPoint: {fileID: 2116448206407352214}
   skinnedMeshRenderer: {fileID: 4684490454620896455}
@@ -425,6 +426,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.52}
   serializedVersion: 2
   m_Radius: 0.7
+--- !u!114 &6850965243807994494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4684490454620896314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b13f7fe1e18b6849a39d9d8007a0aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 3068155826393459636, guid: 5eb7a86c7bbfaaf439cff5287fe93fcf, type: 3}
+  weapon: {fileID: 9019423505693297509}
+  player: {fileID: 4684490454620896453}
+  weaponParent: {fileID: 7287434004968860995}
+  offset: {x: 0.041, y: 0.13}
 --- !u!1 &5904721512715041148
 GameObject:
   m_ObjectHideFlags: 0

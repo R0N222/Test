@@ -779,9 +779,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets: []
   offset: {x: 0, y: 0, z: -10}
-  smoothTime: 0.5
-  minZoom: 10
-  maxZoom: 5
+  smoothTime: 1
+  minZoom: 15
+  maxZoom: 3
   zoomLimiter: 50
   cam: {fileID: 519420031}
 --- !u!114 &519420034
