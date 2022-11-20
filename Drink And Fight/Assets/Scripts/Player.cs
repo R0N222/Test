@@ -36,11 +36,13 @@ public class Player : MonoBehaviour
 	bool fireEnter = false;
 
 	public bool IsAlive => spriteRenderer.enabled;
+    public Color color;
 	public void Start()
 	{
-		GameManager.instance.OnPlayerConnect(this);
-		skinnedMeshRenderer.color = Color.HSVToRGB(Random.Range(0f, 1f), 0.84f, 0.86f);
+		color = Color.HSVToRGB(Random.Range(0f, 1f), 0.84f, 0.86f);
+		skinnedMeshRenderer.color = color;
 		weaponManager.Init(weapon);
+		GameManager.instance.OnPlayerConnect(this);
 	}
 
 

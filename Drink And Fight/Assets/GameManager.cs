@@ -19,9 +19,13 @@ public class GameManager : MonoBehaviour
 
 	public static GameManager instance;
 	private int currentlyAlive;
-	private void Start()
+
+	public void Awake()
 	{
 		instance = this;
+	}
+	private void Start()
+	{
 
 		StartRound();
 	}
@@ -34,6 +38,7 @@ public class GameManager : MonoBehaviour
 		pl.transform.position =  levels[currentLevel].spawnPoints[spawnIndex++ % levels[currentLevel].spawnPoints.Count].position;
 		currentlyAlive++;
 		CamManager.instance.Add(pl.transform);
+		HUD.instance.OnJoinPlayer(pl);
 	}
 
 	public void StartRound()

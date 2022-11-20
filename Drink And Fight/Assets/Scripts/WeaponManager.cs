@@ -36,11 +36,14 @@ public class WeaponManager : MonoBehaviour
 
 	public void ShootEnter(Player pl, Vector2 dir)
 	{
+		if (weapon == null) return;
 		weapon.ShootEnter(player, dir);
 	}
 
 	public void Shoot(Player pl, Vector2 dir)
 	{
+		if (weapon == null) return;
+
 		weapon.Shoot(pl, dir);
 	}
 
