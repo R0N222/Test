@@ -18,7 +18,7 @@ public class CamManager : MonoBehaviour
 	[SerializeField] public Camera cam;
 
 	public static CamManager instance;
-	public void Start()
+	public void Awake()
 	{
 		instance = this;
 	}
