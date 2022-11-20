@@ -245,6 +245,8 @@ MonoBehaviour:
   powers:
   - {fileID: 11400000, guid: 304c2f354daa1e94ca9fa05b770e2607, type: 2}
   health: 100
+  index: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &4684490454620896448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,6 +443,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapons:
   - {fileID: 3068155826393459636, guid: 5eb7a86c7bbfaaf439cff5287fe93fcf, type: 3}
+  - {fileID: 800114871604664968, guid: 6d1dcd218a9971647be1f7b62115fa42, type: 3}
+  - {fileID: 2475709619330242638, guid: 3263d389961c22046a1530d3d23fd164, type: 3}
+  - {fileID: 6860999998678648413, guid: 297eb06c8683c5b458c842acb0a76d2b, type: 3}
   weapon: {fileID: 0}
   player: {fileID: 4684490454620896453}
   weaponParent: {fileID: 7287434004968860995}

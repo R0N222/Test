@@ -35,12 +35,15 @@ public class Player : MonoBehaviour
 	[SerializeField] private float health = 100;
 	bool fireEnter = false;
 
+	public int index = 0;
+	
 	public Color color;
 	public void Start()
 	{
 		color = Color.HSVToRGB(Random.Range(0f, 1f), 0.84f, 0.86f);
 		skinnedMeshRenderer.color = color;
-		weaponManager.Init(weapon);
+		weaponManager.SetRandomWeapon();
+
 		GameManager.instance.OnPlayerConnect(this);
 	}
 
@@ -141,6 +144,8 @@ public class Player : MonoBehaviour
 		health = 100;
 		powers.Clear();
 		powers.Add(power);
+
+		weaponManager.SetRandomWeapon();
 	}
 
 	public void Die()

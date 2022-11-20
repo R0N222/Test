@@ -5,7 +5,7 @@ using UnityEngine;
 public class CamManager : MonoBehaviour
 {
 
-	[SerializeField] private List<Transform> targets;
+	[SerializeField] public List<Transform> targets;
 
 	[SerializeField] private Vector3 offset;
 	[SerializeField] private float smoothTime = 0.5f;

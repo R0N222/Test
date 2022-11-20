@@ -15,7 +15,7 @@ public class HUD : MonoBehaviour
 	[SerializeField] private List<Image> crowns;
 	private int playerCount = 0;
 
-
+	[SerializeField] private List<int> playerScores = new List<int>();
 	public void Awake()
 	{
 		instance = this;
@@ -35,7 +35,15 @@ public class HUD : MonoBehaviour
 		scoreObjects[playerCount].SetActive(true);
 		colorBlocks[playerCount].color = pl.color;
 		playerCount++;
+		playerScores.Add(0);
+		
 	}
 
+
+	public void AddScore(int i)
+	{
+		playerScores[i]++;
+		scoreTexts[i].text = playerScores[i].ToString();
+	}
 	
 }

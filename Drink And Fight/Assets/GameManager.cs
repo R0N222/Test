@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
 	public static GameManager instance;
 	private int currentlyAlive;
+	public static Dictionary<int, Player> playerDict = new();
 
 	public void Awake()
 	{
@@ -36,6 +37,8 @@ public class GameManager : MonoBehaviour
 	{
 		players.Add(pl);
 		pl.transform.position =  levels[currentLevel].spawnPoints[spawnIndex++ % levels[currentLevel].spawnPoints.Count].position;
+		pl.index = currentlyAlive;
+		playerDict.Add(currentlyAlive, pl);
 		currentlyAlive++;
 		CamManager.instance.Add(pl.transform);
 		HUD.instance.OnJoinPlayer(pl);
@@ -69,6 +72,9 @@ public class GameManager : MonoBehaviour
 
 		if (currentlyAlive < 2)
 		{
+
+			var player = CamManager.instance.targets[0].GetComponent<Player>();
+			HUD.instance.AddScore(player.index);
 			EndRound();
 
 		}
@@ -77,9 +83,8 @@ public class GameManager : MonoBehaviour
 
 	private void EndRound()
 	{
-		// 
-
-		StartRound();
+		
+		Invoke(nameof(StartRound),2f);
 	}
 
 	public static void ExecuteAfterTime(Action act, float time)

@@ -19,6 +19,11 @@ public class WeaponManager : MonoBehaviour
 	{
 		weapon = wp;
 	}
+	public void SetRandomWeapon()
+	{
+		SpawnWeapon(weapons[Random.Range(0, weapons.Count)]);
+	}
+
 	public void SpawnWeapon(Weapon pref)
 	{
 		ClearWeapons();
@@ -26,6 +31,9 @@ public class WeaponManager : MonoBehaviour
 
 		weapon = wp.GetComponent<Weapon>();
 	}
+
+
+	
 	private void ClearWeapons()
 	{
 		foreach (GameObject wp in weaponParent)
