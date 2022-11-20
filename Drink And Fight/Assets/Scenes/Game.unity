@@ -2330,7 +2330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9339ec0c3edb422459cc823d40747a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players: []
   levels:
   - {fileID: 1557081290}
   - {fileID: 975589756}

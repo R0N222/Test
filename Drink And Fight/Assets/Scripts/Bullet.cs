@@ -1,20 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D rigid;
+    [SerializeField] public Rigidbody2D rigid;
 
 	private float damage;
 	[SerializeField]
 	private int collisionCount = 3;
 
-    public void Fly(Vector2 dir,float damage, int colCount = 3)
+
+	public Action<Bullet> OnHit;
+	public void Fly(Vector2 dir,float damage, Action<Bullet> hit = null, int colCount = 3)
 	{
 		rigid.AddForce(dir, ForceMode2D.Impulse);
+
+		if (hit == null) hit = (bul) => Destroy(bul.gameObject);
 		this.damage = damage;
 		collisionCount = colCount;
+		OnHit = hit;
 		Invoke(nameof(Destroy),10);
 	}
 	public void OnCollisionEnter2D(Collision2D collision)
@@ -25,7 +30,7 @@ public class Bullet : MonoBehaviour
 			collision.gameObject.GetComponent<Player>().Damage(damage);
 			AudioManager.Play("Hit");
 
-			Destroy(gameObject);
+			OnHit?.Invoke(this);
 		}
 		if (collisionCount == 0) Destroy(gameObject);
 	}

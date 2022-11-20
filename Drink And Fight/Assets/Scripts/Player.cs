@@ -35,9 +35,8 @@ public class Player : MonoBehaviour
 	[SerializeField] private float health = 100;
 	bool fireEnter = false;
 
-	public int index = 0;
-	
-	public Color color;
+	public bool IsAlive => spriteRenderer.enabled;
+    public Color color;
 	public void Start()
 	{
 		color = Color.HSVToRGB(Random.Range(0f, 1f), 0.84f, 0.86f);
