@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PistoleWeapon : Weapon
+public class AK74 : Weapon
 {
 
 	[SerializeField] private GameObject bullet;
@@ -11,13 +11,13 @@ public class PistoleWeapon : Weapon
 	[SerializeField] private float shootStrength;
 	protected override void Act(Player p, Vector2 dir)
 	{
-
-	}
+        GameObject g = Instantiate(bullet, spawnPosition.position, Quaternion.identity, GameManager.instance.transform);
+        g.GetComponent<Bullet>().Fly(dir.normalized * shootStrength, damage);
+    }
 
 	protected override void ActEnter(Player p, Vector2 dir) // einzel schuss
 	{
-		GameObject g = Instantiate(bullet, spawnPosition.position,Quaternion.identity ,GameManager.instance.transform);
-		g.GetComponent<Bullet>().Fly(dir.normalized * shootStrength, damage);
+		
 	}
 
 	

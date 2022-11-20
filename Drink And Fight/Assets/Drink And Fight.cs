@@ -51,7 +51,7 @@ public partial class @DrinkAndFight : IInputActionCollection2, IDisposable
                     ""id"": ""f125a3c1-025d-4456-8d7e-7dff8e12fce7"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {

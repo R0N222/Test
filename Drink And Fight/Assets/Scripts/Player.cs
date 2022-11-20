@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 	[SerializeField] private float raySize = 0.2f;
 
 
+	[SerializeField] private WeaponManager weaponManager;
 	[SerializeField] private Weapon weapon;
 
 	[SerializeField] private Transform weaponHolder;
@@ -31,10 +32,13 @@ public class Player : MonoBehaviour
 	[SerializeField] private SpriteRenderer skinnedMeshRenderer;
 
 	[SerializeField] private List<ActivePower> powers = new List<ActivePower>();
+	[SerializeField] private float health = 100;
+	bool fireEnter = false;
 	public void Start()
 	{
 		GameManager.instance.OnPlayerConnect(this);
 		skinnedMeshRenderer.color = Color.HSVToRGB(Random.Range(0f, 1f), 0.84f, 0.86f);
+		weaponManager.Init(weapon);
 	}
 
 
@@ -71,12 +75,12 @@ public class Player : MonoBehaviour
 	}
 
 
-	bool fireEnter = false;
 	public void Fire(CallbackContext cc)
 	{
 
 		AudioManager.Play("Shoot");
 
+		Debug.Log("Hold");
 		if (lookDir == Vector2.zero)
 		{
 			lookDir = movementInput;
@@ -87,10 +91,11 @@ public class Player : MonoBehaviour
 		}
 		if (cc.started)
 		{
-			weapon.ActEnter(this, lookDir);
+			weaponManager.ShootEnter(this, lookDir);
 			fireEnter = true;
 		}
-		weapon.Act(this, lookDir);
+
+		weaponManager.Shoot(this, lookDir);
 	}
 	public void Look(CallbackContext cc)
 	{
@@ -146,7 +151,6 @@ public class Player : MonoBehaviour
 	}
 
 
-	[SerializeField] private float health = 100;
 	public void Damage(float damage)
 	{
 

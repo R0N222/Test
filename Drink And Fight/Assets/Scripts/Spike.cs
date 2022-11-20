@@ -14,6 +14,12 @@ namespace Assets.power
             Vector3 velo = player.rigid.velocity;
             Vector2 position = player.transform.position - velo.normalized * 2 + new Vector3(0,10,0);
             g = Instantiate(spike,position, Quaternion.identity, GameManager.instance.transform);
+            DestroyYourself();
+        }
+
+        public void DestroyYourself()
+        {
+            Destroy(g,20f);
         }
     }
 }
