@@ -13,6 +13,12 @@ public class WeaponManager : MonoBehaviour
 	[SerializeField] private Player player;
 	[SerializeField] private Transform weaponParent;
 	[SerializeField] private Vector2 offset;
+
+
+	public void Init(Weapon wp)
+	{
+		weapon = wp;
+	}
 	public void SpawnWeapon(Weapon pref)
 	{
 		ClearWeapons();

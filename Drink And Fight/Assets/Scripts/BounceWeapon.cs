@@ -17,7 +17,7 @@ public class BounceWeapon : Weapon
 	protected override void ActEnter(Player p, Vector2 dir) // einzel schuss
 	{
 		GameObject g = Instantiate(bullet, spawnPosition.position,Quaternion.identity ,GameManager.instance.transform);
-		g.GetComponent<Bullet>().Fly(dir.normalized * shootStrength, damage,10000);
+		g.GetComponent<Bullet>().Fly(dir.normalized * shootStrength, damage,null,10000);
 	}
 
 	

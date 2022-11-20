@@ -34,6 +34,8 @@ public class Player : MonoBehaviour
 	[SerializeField] private List<ActivePower> powers = new List<ActivePower>();
 	[SerializeField] private float health = 100;
 	bool fireEnter = false;
+
+	public bool IsAlive => spriteRenderer.enabled;
 	public void Start()
 	{
 		GameManager.instance.OnPlayerConnect(this);

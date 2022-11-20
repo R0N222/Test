@@ -6,7 +6,7 @@ using UnityEngine;
 using Assets.power;
 public class GameManager : MonoBehaviour
 {
-	[SerializeField] private List<Player> players = new List<Player>();
+	public static List<Player> players = new List<Player>();
 
 	[SerializeField] private List<Level> levels;
 
